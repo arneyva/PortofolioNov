@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: 'Cyborg';
+        src: url('../public/fonts/Cyborg Punk.ttf') format('truetype');
+    }
+    @font-face {
+        font-family: 'Circular Std';
+        src: url('../public/fonts/CircularStd-Bold.woff') format('woff');
+    }
+    @font-face {
+        font-family: 'Charmonman Regular';
+        src: url('../public/fonts/Charmonman-Regular.ttf') format('truetype');
+    }
+
+
+    html {
+        font-family: 'inter';
+        color: rgb(3, 3, 3);
+        
+    }
+
+    /* h1 {
+        font-family: 'Cyborg';
+    } */
+   
+}
