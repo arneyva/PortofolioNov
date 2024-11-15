@@ -6,18 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./output.css">
+    <script src="https://kit.fontawesome.com/57bf04933e.js" crossorigin="anonymous"></script>
+    <!-- alpine -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
 <body>
     <!-- Hero -->
-    <section class="max-w-screen-xl mx-auto py-4 ">
+    <section class="max-w-screen-xl mx-auto py-4  px-4">
         <!-- navbar -->
-        <nav>
+        <nav x-data="{navOpen:false}">
             <div class="flex justify-between items-center">
-                <div>
+                <div class="">
                     <img src="../public/assets/logo.png" alt="">
                 </div>
-                <div>
+                <div class="lg:hidden" @click="navOpen = !navOpen">
+                    <i class="fa-solid fa-bars fa-md" style="color:#0A5C33"></i>
+                </div>
+
+                <div class="hidden lg:block">
                     <ul class="flex gap-16 font-circular text-ijo font-bold">
                         <li>Home</li>
                         <li>Tentang</li>
@@ -26,34 +33,72 @@
                     </ul>
                 </div>
             </div>
+            <!-- navbar bawah -->
+            <div x-show="navOpen" x-data="{open:false}"
+                class="z-50 fixed bottom-0 right-0 left-0 bg-ijo px-4 py-4  lg:hidden">
+                <ul x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
+                    x-transition:leave="transition ease-in duration-300"
+                    x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90"
+                    class="flex justify-between">
+                    <li><a href="#home"><button
+                                class="flex justify-center flex-col items-center gap-1 text-white"><ion-icon
+                                    name="home-outline" class="text-2xl"></ion-icon>
+                                <span class="text-white opacity-50 text-base font-bold">Home</span>
+                            </button></a></li>
+                    <li><a href="#aboutme"><button class="flex justify-center flex-col items-center gap-1"><ion-icon
+                                    name="albums-outline" class="text-2xl text-white opacity-50"></ion-icon> <span
+                                    class="text-grey opacity-50 text-base font-bold">About Me</span></button></a></li>
+                    <li><a href="#project"><button class="flex justify-center flex-col items-center gap-1"><ion-icon
+                                    name="sparkles-outline" class="text-2xl text-grey opacity-50"></ion-icon> <span
+                                    class="text-grey opacity-50 text-base font-bold">Project</span></button></a></li>
+                    <li><a href="#contactme"><button class="flex justify-center flex-col items-center gap-1"><ion-icon
+                                    name="call-outline" class="text-2xl text-grey opacity-50"></ion-icon> <span
+                                    class="text-grey opacity-50 text-base font-bold">Contact</span></button></a></li>
+                </ul>
+                <div x-show="open" x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
+                    x-transition:leave="transition ease-in duration-300"
+                    x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90"
+                    class="absolute bottom-24 left-1/2 translate-x-[-50%] flex gap-4 w-3/4">
+                    <button class="grow bg-white px-8 py-4 font-bold text-grey rounded-full text-sm">Login</button>
+                    <button class="grow bg-ungu px-8 py-4 font-bold text-white rounded-full text-sm">Sign Up</button>
+                </div>
+            </div>
         </nav>
         <!-- hero body -->
         <div class="grid grid-cols-12 items-center">
-            <div class="col-span-12 lg:col-span-5">
+            <div class="col-span-12 lg:col-span-5 order-2 lg:order-1">
                 <div class="">
-                    <h1 class="font-charmonman lg:text-[69px] font-bold mb-4">Kenikmatan <span class="text-ijonom">Buah
-                            Salak</span> <span class="text-ijo">Asli dari
+                    <h1
+                        class="font-charmonman lg:text-[69px] text-[43px] md:text-[53px] font-bold mb-4 mt-4 lg:mr-4 text-center lg:text-start leading-tight">
+                        Kenikmatan <span class="text-ijonom">Buah
+                            Salak</span> <span class="text-b">Asli dari
                             Magelang</span></h1>
-                    <p class="text-grey font-inter mb-4">Dipetik langsung oleh para petani di Kaki Gunung Merapi,
+                    <p class="text-grey font-inter mb-4 text-center lg:text-start">Dipetik langsung oleh para petani di
+                        Kaki Gunung Merapi,
                         menghadirkan rasa yang manis, gurih,
                         renyah, dan fresh yang cocok untuk makanan penutup atau cemilan di rumah anda.</p>
-                    <button class="justify-center items-center z-10 flex gap-2 py-6 px-8 bg-ijo
-                            rounded-xl text-md font-bold text-white font-circular">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
-                            <path fill="white"
-                                d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2s-.9-2-2-2m10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2s2-.9 2-2s-.9-2-2-2m-8.9-5h8.66L21 4.96L19.25 4l-3.7 7H8.53L4.27 2H1v2h2l3.6 7.59L3.61 17H19v-2H7zM12 2l4 4l-4 4l-1.41-1.41L12.17 7H8V5h4.17l-1.59-1.59z" />
-                        </svg>
-                        Beli Sekarang
-                    </button>
+                    <div class="flex flex-col md:flex-row justify-center lg:justify-start gap-6 font-circular">
+                        <button
+                            class="justify-center items-center z-10 flex gap-2 py-6 px-8 bg-ijo rounded-xl text-sm font-bold text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24">
+                                <path fill="white"
+                                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24c1.12.37 2.33.57 3.57.57c.55 0 1 .45 1 1V20c0 .55-.45 1-1 1c-9.39 0-17-7.61-17-17c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1c0 1.25.2 2.45.57 3.57c.11.35.03.74-.25 1.02z">
+                                </path>
+                            </svg>
+                            <a href="mailto:mohamadwijdanarif@gmail.com"></a>Contact Me
+                        </button>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="col-span-12 lg:col-span-7">
-                <img src="../public/assets/hero.png" alt="">
+            <div class="col-span-12 lg:col-span-7 order-1 lg:order-2">
+                <img src="../public/assets/hero.png" class="w-full" alt="">
             </div>
         </div>
     </section>
     <!-- tentang -->
-    <section class="max-w-screen-xl mx-auto py-4 ">
+    <section class="max-w-screen-xl mx-auto py-4  px-4">
         <div class="grid grid-cols-12 items-center">
             <div class="col-span-12 lg:col-span-5">
                 <div>
@@ -69,7 +114,7 @@
                         berkomitmen memberikan pengalaman membeli buah salak berkualitas tinggi yang dipetik langsung
                         dari pohonnya, menjamin kesegaran dan cita rasa autentik dalam setiap gigitan.</p>
                 </div>
-                <div class="flex gap-4">
+                <div class="flex flex-col sm:flex-row gap-4">
                     <div
                         class="flex justify-center gap-2 flex-col items-center rounded-[32px] border lg:p-8 p-10 bg-ijo drop-shadow-myshadow ">
                         <div><img src="../public/assets/services1.svg" alt=""></div>
@@ -105,6 +150,7 @@
 
         </div>
     </section>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 </body>
 
 </html>
