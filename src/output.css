@@ -711,6 +711,10 @@ html {
   justify-content: space-between;
 }
 
+.gap-1 {
+  gap: 0.25rem;
+}
+
 .gap-16 {
   gap: 4rem;
 }
@@ -723,36 +727,38 @@ html {
   gap: 1rem;
 }
 
-.gap-8 {
-  gap: 2rem;
-}
-
-.gap-1 {
-  gap: 0.25rem;
-}
-
 .gap-6 {
   gap: 1.5rem;
 }
 
-.text-clip {
-  text-overflow: clip;
+.gap-8 {
+  gap: 2rem;
 }
 
 .rounded-\[32px\] {
   border-radius: 32px;
 }
 
-.rounded-xl {
-  border-radius: 0.75rem;
-}
-
 .rounded-full {
   border-radius: 9999px;
 }
 
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+
 .border {
   border-width: 1px;
+}
+
+.border-ijonom {
+  --tw-border-opacity: 1;
+  border-color: rgb(88 170 37 / var(--tw-border-opacity));
+}
+
+.border-oren {
+  --tw-border-opacity: 1;
+  border-color: rgb(241 88 44 / var(--tw-border-opacity));
 }
 
 .bg-coklit {
@@ -775,8 +781,18 @@ html {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-oren {
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 88 44 / var(--tw-bg-opacity));
+}
+
 .p-10 {
   padding: 2.5rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .px-8 {
@@ -792,11 +808,6 @@ html {
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-}
-
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
 }
 
 .text-center {
@@ -816,9 +827,8 @@ html {
   line-height: 2rem;
 }
 
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+.text-\[43px\] {
+  font-size: 43px;
 }
 
 .text-base {
@@ -826,21 +836,19 @@ html {
   line-height: 1.5rem;
 }
 
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 
-.text-\[20px\] {
-  font-size: 20px;
-}
-
-.text-\[40px\] {
-  font-size: 40px;
-}
-
-.text-\[43px\] {
-  font-size: 43px;
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .font-bold {
@@ -875,13 +883,9 @@ html {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.text-black {
+.text-oren {
   --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
-}
-
-.opacity-50 {
-  opacity: 0.5;
+  color: rgb(241 88 44 / var(--tw-text-opacity));
 }
 
 .opacity-0 {
@@ -890,6 +894,15 @@ html {
 
 .opacity-100 {
   opacity: 1;
+}
+
+.opacity-50 {
+  opacity: 0.5;
+}
+
+.drop-shadow-myshadow {
+  --tw-drop-shadow: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .transition {
@@ -921,14 +934,6 @@ html {
 @media (min-width: 768px) {
   .md\:flex-row {
     flex-direction: row;
-  }
-
-  .md\:text-\[30px\] {
-    font-size: 30px;
-  }
-
-  .md\:text-\[50px\] {
-    font-size: 50px;
   }
 
   .md\:text-\[53px\] {
