@@ -14,6 +14,7 @@ module.exports = {
         grey: "#9E9E9E",
         coklit: "#8B644E",
         oren: "#F1582C",
+        orentuo: "#9D2F10FF",
       },
       dropShadow: {
         myshadow: ["0px 4px 4px rgba(0, 0, 0, 0.25)"],
